@@ -1,0 +1,14 @@
+<ion-view view-title="Search/Filter">
+  <ion-content>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="search.searchInput" required="" placeholder="Beer you're searching for?">
+      </label>
+      <button class="button button-clear" ng-click="clearInput();">
+        Cancel
+      </button>
+    </div>
+    <pre>searchInput = {{search.searchInput | json}}</pre>
+  </ion-content>
+</ion-view>
