@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionicApp'])
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html',
-        controller: 'AppCtrl'
+        controller: 'SearchCtrl'
       }
     }
   })
@@ -46,7 +46,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionicApp'])
       url: '/results',
       views: {
         'menuContent': {
-          templateUrl: 'templates/results.html'
+          templateUrl: 'templates/results.html',
+          controller: 'ResultsCtrl'
         }
       }
     })
@@ -55,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionicApp'])
       views: {
         'menuContent': {
           templateUrl: 'templates/details.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'DetailsCtrl'
         }
       }
     })

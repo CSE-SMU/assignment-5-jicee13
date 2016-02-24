@@ -1,11 +1,17 @@
-<ion-view view-title="Details">
+<ion-view view-title={{itemDetails.nameDisplay}}>
   <ion-content>
+    <div class="item item-image">
+      <img src={{itemDetails.labels.large}}>
+    </div>
+    <div class="card"><b>Description: </b>
+      <div class="item item-text-wrap">
+        {{itemDetails.description}}
+      </div>
+    </div>
     <ion-list>
-      <pre>something</pre>
-      <ion-item ng-repeat="stuff in info" >
-        <pre>something</pre>
-        {{stuff.currentPage}}
-      </ion-item>
+      <ion-item><b>Year Created: </b>{{itemDetails.year}}</ion-item>
+      <ion-item><b>Alcohol Content: </b>{{itemDetails.abv}}%</ion-item>
+      <ion-item><b>How Bitter? </b>{{itemDetails.ibu}}</ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
