@@ -6,12 +6,10 @@ app.controller('SearchCtrl',function($scope, $http, $state, BeerData, ItemData) 
   $scope.search = {searchInput: ""};
 
   $scope.clearInput = function() {
-    console.log($scope.search.searchInput);
     $scope.search.searchInput = "";
   };
 
   $scope.searchBeer = function() {
-    console.log($scope.search.searchInput);
     $http({
       method: 'GET',
       url: 'https://salty-taiga-88147.herokuapp.com/beers'
@@ -19,9 +17,6 @@ app.controller('SearchCtrl',function($scope, $http, $state, BeerData, ItemData) 
     }).then(function successfulCallback(response) {
       //puts data objects containing name and description into array
       $scope.myArray = response.data.data;
-      console.log('asDASFDAFA');
-      console.log(BeerData);
-      console.log('asDASFDAFA');
       BeerData.data = response.data.data;
       $state.go('app.results');
     }, function errorCallback(response) {
@@ -40,21 +35,21 @@ app.factory('ItemData', function(){
 
 app.controller('ResultsCtrl', function($scope, $http, $state, BeerData, ItemData) {
   $scope.beerArray = BeerData.data;
-  console.log(BeerData.data);
-  console.log('made it to resultsctrl');
 
   $scope.getDetails = function(item) {
-    console.log('made it to getDetails');
-    console.log(item);
-
     ItemData.data = item;
-    console.log(ItemData);
     $state.go('app.details');
+  };
+
+  $scope.returnHome = function() {
+    $state.go('app.search');
   };
 });
 
 app.controller('DetailsCtrl', function($scope, $http, $state, BeerData, ItemData) {
-  console.log('made it to detailsctrl');
   $scope.itemDetails = ItemData.data;
-  console.log(ItemData.data.description);
+  
+  $scope.returnHome = function() {
+    $state.go('app.search');
+  };
 });

@@ -1,5 +1,9 @@
-<ion-view view-title="Results">
+<ion-view>
   <ion-content>
+    <span class="bar bar-header">
+      <h1 class="title">Results</h1>
+      <button class="button" ng-click=returnHome();>Filter Page</button>
+    </span>
     <ion-list>
       <ion-item ng-click="getDetails(item)" ng-repeat="item in beerArray">
         <span><img src={{item.labels.icon}}></img></span><span>{{item.nameDisplay}}!</span>
